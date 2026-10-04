@@ -13,19 +13,17 @@ function App() {
 
   function agregarModulo(evento) {
     evento.preventDefault();
-    console.log(event)
 
     if (nombreModulo.trim() === "") {
       setNombreModulo("");
       return;
     }
-    console.log("miremos que hay",nombreModulo);
-
 
     const moduloNuevo = {
       id: Date.now(),
-      titulo: nombreModulo,
+      titulo: nombreModulo.trim(),
     };
+    console.log({moduloNuevo})
 
     setModulos([...modulos, moduloNuevo]);
 
