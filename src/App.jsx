@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./App.css";
 
 const modulosIniciales = [
-  { id: 1, titulo: "¿Qué es React?" },
-  { id: 2, titulo: "¿Para qué sirve React?" },
-  { id: 3, titulo: "Ventajas y desventajas de React" },
+  { id: 1, titulo: "¿Qué es React?", completado: false },
+  { id: 2, titulo: "¿Para qué sirve React?", completado: true },
+  { id: 3, titulo: "Ventajas y desventajas de React", completado: false },
 ];
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
     const moduloNuevo = {
       id: Date.now(),
       titulo: nombreModulo.trim(),
+      completado: false,
     };
-    console.log({moduloNuevo})
 
     setModulos([...modulos, moduloNuevo]);
 
@@ -43,7 +43,12 @@ function App() {
       </form>
       <ul>
         {modulos.map((modulo) => (
-          <li key={modulo.id}>{modulo.titulo}</li>
+          <li
+            className={modulo.completado ? "modulo-completado" : ""}
+            key={modulo.id}
+          >
+            {modulo.titulo}
+          </li>
         ))}
       </ul>
     </main>
