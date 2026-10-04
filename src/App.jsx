@@ -24,7 +24,7 @@ function App() {
 
   return (
     <main>
-      <h1>Bienvenido a la ruta de aprendizaje de React</h1>
+      <h1>Bienvenido a la ruta de aprendizaje de React.</h1>
       <form onSubmit={agregarModulo}>
         <input
           value={nombreModulo}
