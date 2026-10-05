@@ -3,7 +3,7 @@ import "./App.css";
 
 const modulosIniciales = [
   { id: 1, titulo: "¿Qué es React?", completado: false },
-  { id: 2, titulo: "¿Para qué sirve React?", completado: true },
+  { id: 2, titulo: "¿Para qué sirve React?", completado: false },
   { id: 3, titulo: "Ventajas y desventajas de React", completado: false },
 ];
 
@@ -30,6 +30,16 @@ function App() {
     setNombreModulo("");
   }
 
+  function invertirCompletado(idModulo) {
+    const modulosActualizados = modulos.map((modulo) =>
+      modulo.id === idModulo
+        ? { ...modulo, completado: !modulo.completado }
+        : modulo,
+    );
+    
+    setModulos(modulosActualizados);
+  }
+
   return (
     <main>
       <h1>Bienvenido a la ruta de aprendizaje de React</h1>
@@ -46,6 +56,7 @@ function App() {
           <li
             className={modulo.completado ? "modulo-completado" : ""}
             key={modulo.id}
+            onClick={() => invertirCompletado(modulo.id)}
           >
             {modulo.titulo}
           </li>
