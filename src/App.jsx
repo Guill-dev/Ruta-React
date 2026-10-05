@@ -11,6 +11,10 @@ function App() {
   const [modulos, setModulos] = useState(modulosIniciales);
   const [nombreModulo, setNombreModulo] = useState("");
 
+  const cantidadPendientes = modulos.filter(
+    (modulo) => !modulo.completado,
+  ).length;
+
   function agregarModulo(evento) {
     evento.preventDefault();
 
@@ -42,12 +46,17 @@ function App() {
 
   function eliminarModulo(idModulo) {
     const modulosRestantes = modulos.filter((modulo) => modulo.id !== idModulo);
+
     setModulos(modulosRestantes);
   }
 
   return (
     <main>
       <h1>Bienvenido a la ruta de aprendizaje de React</h1>
+      <p>
+        Tienes {cantidadPendientes}{" "}
+        {cantidadPendientes === 1 ? "módulo pendiente" : "módulos pendientes"}
+      </p>
       <form onSubmit={agregarModulo}>
         <input
           value={nombreModulo}
