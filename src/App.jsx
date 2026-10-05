@@ -36,8 +36,13 @@ function App() {
         ? { ...modulo, completado: !modulo.completado }
         : modulo,
     );
-    
+
     setModulos(modulosActualizados);
+  }
+
+  function eliminarModulo(idModulo) {
+    const modulosRestantes = modulos.filter((modulo) => modulo.id !== idModulo);
+    setModulos(modulosRestantes);
   }
 
   return (
@@ -56,9 +61,11 @@ function App() {
           <li
             className={modulo.completado ? "modulo-completado" : ""}
             key={modulo.id}
-            onClick={() => invertirCompletado(modulo.id)}
           >
-            {modulo.titulo}
+            <span onClick={() => invertirCompletado(modulo.id)}>
+              {modulo.titulo}
+            </span>
+            <button onClick={() => eliminarModulo(modulo.id)}>Eliminar</button>
           </li>
         ))}
       </ul>
