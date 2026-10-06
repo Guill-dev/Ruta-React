@@ -4,7 +4,7 @@ import "./App.css";
 const modulosIniciales = [
   { id: 1, titulo: "¿Qué es React?", completado: false },
   { id: 2, titulo: "¿Para qué sirve React?", completado: false },
-  { id: 3, titulo: "¿Qué es un propt", completado: false },
+  { id: 3, titulo: "¿Qué es un propt?", completado: false },
 ];
 
 function App() {
