@@ -44,11 +44,14 @@ function App() {
   }
 
   return (
-    <main>
-      <h1>Bienvenido a la ruta de aprendizaje de React</h1>
+    <main className="app">
+      <h1 className="app-titulo">
+        Bienvenido a la ruta de aprendizaje de{" "}
+        <span className="app-titulo-destacado">React</span>
+      </h1>
       <ContadorPendientes cantidad={cantidadPendientes} />
       <FormularioModulo alAgregar={agregarModulo} />
-      <ul>
+      <ul className="app-lista">
         {modulos.map((modulo) => (
           <TarjetaModulo
             key={modulo.id}
