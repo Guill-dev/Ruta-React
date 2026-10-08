@@ -1,0 +1,62 @@
+.tarjeta-modulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  border-left: 6px solid var(--color-franja);
+  border-radius: 12px;
+  background-color: var(--blanco);
+  box-shadow: 0 2px 8px rgba(33, 30, 67, 0.12);
+}
+
+/* Franja según la posición: 1, 2, 3, 4 y vuelve a empezar */
+.tarjeta-modulo:nth-child(4n + 1) {
+  --color-franja: var(--azul-katary);
+}
+
+.tarjeta-modulo:nth-child(4n + 2) {
+  --color-franja: var(--rojo-coral);
+}
+
+.tarjeta-modulo:nth-child(4n + 3) {
+  --color-franja: var(--salmon);
+}
+
+.tarjeta-modulo:nth-child(4n + 4) {
+  --color-franja: var(--naranja);
+}
+
+.tarjeta-modulo-titulo {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta-modulo-titulo:hover {
+  color: var(--rojo-coral);
+}
+
+.tarjeta-modulo-eliminar {
+  padding: 6px 14px;
+  border: 1px solid var(--gris);
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--gris);
+  cursor: pointer;
+}
+
+.tarjeta-modulo-eliminar:hover {
+  border-color: var(--rojo-coral);
+  color: var(--rojo-coral);
+}
+
+/* Al final, para que su franja gris le gane a la de .tarjeta-modulo */
+.modulo-completado {
+  border-left-color: var(--gris);
+  color: var(--gris);
+}
+
+.modulo-completado .tarjeta-modulo-titulo {
+  text-decoration: line-through;
+}
