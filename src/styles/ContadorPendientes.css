@@ -1,0 +1,8 @@
+.contador-pendientes {
+  width: fit-content;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background-color: var(--azul-katary);
+  color: var(--blanco);
+  font-weight: 600;
+}
