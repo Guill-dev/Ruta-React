@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TarjetaModulo from "./components/TarjetaModulo.jsx";
 import FormularioModulo from "./components/FormularioModulo.jsx";
+import ContadorPendientes from "./components/ContadorPendientes.jsx";
 import "./App.css";
 
 const modulosIniciales = [
@@ -45,10 +46,7 @@ function App() {
   return (
     <main>
       <h1>Bienvenido a la ruta de aprendizaje de React</h1>
-      <p>
-        Tienes {cantidadPendientes}{" "}
-        {cantidadPendientes === 1 ? "módulo pendiente" : "módulos pendientes"}
-      </p>
+      <ContadorPendientes cantidad={cantidadPendientes} />
       <FormularioModulo alAgregar={agregarModulo} />
       <ul>
         {modulos.map((modulo) => (
