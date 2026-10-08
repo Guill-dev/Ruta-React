@@ -12,10 +12,23 @@ const modulosIniciales = [
 
 function App() {
   const [modulos, setModulos] = useState(modulosIniciales);
+  const [filtro, setFiltro] = useState("todos");
 
   const cantidadPendientes = modulos.filter(
     (modulo) => !modulo.completado,
   ).length;
+
+  const modulosVisibles = modulos.filter((modulo) => {
+    if (filtro === "pendientes") {
+      return !modulo.completado;
+    }
+
+    if (filtro === "completados") {
+      return modulo.completado;
+    }
+
+    return true;
+  });
 
   function agregarModulo(tituloModulo) {
     const moduloNuevo = {
@@ -52,7 +65,7 @@ function App() {
       <ContadorPendientes cantidad={cantidadPendientes} />
       <FormularioModulo alAgregar={agregarModulo} />
       <ul className="app-lista">
-        {modulos.map((modulo) => (
+        {modulosVisibles.map((modulo) => (
           <TarjetaModulo
             key={modulo.id}
             id={modulo.id}
