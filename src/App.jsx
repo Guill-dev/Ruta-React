@@ -2,7 +2,7 @@ import { useState } from "react";
 import TarjetaModulo from "./components/TarjetaModulo.jsx";
 import FormularioModulo from "./components/FormularioModulo.jsx";
 import ContadorPendientes from "./components/ContadorPendientes.jsx";
-import "./App.css";
+import "./styles/App.css";
 
 const modulosIniciales = [
   { id: 1, titulo: "¿Qué es React?", completado: false },
