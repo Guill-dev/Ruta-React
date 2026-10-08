@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TarjetaModulo from "./components/TarjetaModulo.jsx";
 import "./App.css";
 
 const modulosIniciales = [
@@ -67,15 +68,14 @@ function App() {
       </form>
       <ul>
         {modulos.map((modulo) => (
-          <li
-            className={modulo.completado ? "modulo-completado" : ""}
+          <TarjetaModulo
             key={modulo.id}
-          >
-            <span onClick={() => invertirCompletado(modulo.id)}>
-              {modulo.titulo}
-            </span>
-            <button onClick={() => eliminarModulo(modulo.id)}>Eliminar</button>
-          </li>
+            id={modulo.id}
+            titulo={modulo.titulo}
+            completado={modulo.completado}
+            alInvertirCompletado={invertirCompletado}
+            alEliminar={eliminarModulo}
+          />
         ))}
       </ul>
     </main>
