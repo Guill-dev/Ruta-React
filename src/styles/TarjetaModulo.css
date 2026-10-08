@@ -9,6 +9,16 @@
   border-radius: 12px;
   background-color: var(--blanco);
   box-shadow: 0 2px 8px rgba(33, 30, 67, 0.12);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-left-color 0.2s ease;
+  animation: aparecer-tarjeta 0.35s ease-out;
+}
+
+.tarjeta-modulo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(33, 30, 67, 0.16);
 }
 
 /* Franja según la posición: 1, 2, 3, 4 y vuelve a empezar */
@@ -31,6 +41,7 @@
 .tarjeta-modulo-titulo {
   cursor: pointer;
   overflow-wrap: anywhere;
+  transition: color 0.2s ease;
 }
 
 .tarjeta-modulo-titulo:hover {
@@ -44,6 +55,9 @@
   background-color: transparent;
   color: var(--gris);
   cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .tarjeta-modulo-eliminar:hover {
@@ -59,4 +73,28 @@
 
 .modulo-completado .tarjeta-modulo-titulo {
   text-decoration: line-through;
+}
+
+@keyframes aparecer-tarjeta {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Para quien activó reducir el movimiento: sin aparición ni subida */
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-modulo {
+    transition: none;
+    animation: none;
+  }
+
+  .tarjeta-modulo:hover {
+    transform: none;
+  }
 }
