@@ -2,6 +2,7 @@ import { useState } from "react";
 import TarjetaModulo from "./components/TarjetaModulo.jsx";
 import FormularioModulo from "./components/FormularioModulo.jsx";
 import ContadorPendientes from "./components/ContadorPendientes.jsx";
+import FiltroModulos from "./components/FiltroModulos.jsx";
 import "./styles/App.css";
 
 const modulosIniciales = [
@@ -64,6 +65,7 @@ function App() {
       </h1>
       <ContadorPendientes cantidad={cantidadPendientes} />
       <FormularioModulo alAgregar={agregarModulo} />
+      <FiltroModulos filtro={filtro} alCambiarFiltro={setFiltro} />
       <ul className="app-lista">
         {modulosVisibles.map((modulo) => (
           <TarjetaModulo

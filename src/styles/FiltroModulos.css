@@ -1,0 +1,32 @@
+.filtro-modulos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.filtro-modulos-boton {
+  padding: 6px 16px;
+  border: 1px solid var(--azul-katary);
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--azul-katary);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.filtro-modulos-boton:hover {
+  border-color: var(--rojo-coral);
+  color: var(--rojo-coral);
+}
+
+/* Al final y con su :hover, para que el activo no cambie al pasar el mouse */
+.filtro-modulos-activo,
+.filtro-modulos-activo:hover {
+  border-color: var(--azul-katary);
+  background-color: var(--azul-katary);
+  color: var(--blanco);
+}
