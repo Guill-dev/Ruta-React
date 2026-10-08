@@ -1,38 +1,29 @@
 import { useState } from "react";
 import TarjetaModulo from "./components/TarjetaModulo.jsx";
+import FormularioModulo from "./components/FormularioModulo.jsx";
 import "./App.css";
 
 const modulosIniciales = [
   { id: 1, titulo: "¿Qué es React?", completado: false },
   { id: 2, titulo: "¿Para qué sirve React?", completado: false },
-  { id: 3, titulo: "¿Qué es un propt?", completado: false },
+  { id: 3, titulo: "Ventajas y desventajas de React", completado: false },
 ];
 
 function App() {
   const [modulos, setModulos] = useState(modulosIniciales);
-  const [nombreModulo, setNombreModulo] = useState("");
 
   const cantidadPendientes = modulos.filter(
     (modulo) => !modulo.completado,
   ).length;
 
-  function agregarModulo(evento) {
-    evento.preventDefault();
-
-    if (nombreModulo.trim() === "") {
-      setNombreModulo("");
-      return;
-    }
-
+  function agregarModulo(tituloModulo) {
     const moduloNuevo = {
       id: Date.now(),
-      titulo: nombreModulo.trim(),
+      titulo: tituloModulo,
       completado: false,
     };
 
     setModulos([...modulos, moduloNuevo]);
-
-    setNombreModulo("");
   }
 
   function invertirCompletado(idModulo) {
@@ -58,14 +49,7 @@ function App() {
         Tienes {cantidadPendientes}{" "}
         {cantidadPendientes === 1 ? "módulo pendiente" : "módulos pendientes"}
       </p>
-      <form onSubmit={agregarModulo}>
-        <input
-          value={nombreModulo}
-          onChange={(evento) => setNombreModulo(evento.target.value)}
-          placeholder="¿Cómo se llama el módulo que deseas agregar?"
-        />
-        <button>Agregar módulo</button>
-      </form>
+      <FormularioModulo alAgregar={agregarModulo} />
       <ul>
         {modulos.map((modulo) => (
           <TarjetaModulo
