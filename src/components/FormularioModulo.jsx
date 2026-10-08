@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/FormularioModulo.css";
 
 function FormularioModulo({ alAgregar }) {
   const [nombreModulo, setNombreModulo] = useState("");
@@ -18,13 +19,14 @@ function FormularioModulo({ alAgregar }) {
   }
 
   return (
-    <form onSubmit={enviarFormulario}>
+    <form className="formulario-modulo" onSubmit={enviarFormulario}>
       <input
+        className="formulario-modulo-caja"
         value={nombreModulo}
         onChange={(evento) => setNombreModulo(evento.target.value)}
         placeholder="¿Cómo se llama el módulo que deseas agregar?"
       />
-      <button>Agregar módulo</button>
+      <button className="formulario-modulo-agregar">Agregar módulo</button>
     </form>
   );
 }

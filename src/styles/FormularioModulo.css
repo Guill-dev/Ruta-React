@@ -1,0 +1,51 @@
+.formulario-modulo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.formulario-modulo-caja {
+  flex-grow: 1;
+  flex-basis: 240px;
+  padding: 12px 16px;
+  border: 2px solid var(--gris);
+  border-radius: 12px;
+  font-size: inherit;
+  color: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Mientras se escribe: el borde coral reemplaza el contorno del navegador */
+.formulario-modulo-caja:focus {
+  outline: none;
+  border-color: var(--rojo-coral);
+  box-shadow: 0 0 0 3px rgba(234, 82, 78, 0.2);
+}
+
+.formulario-modulo-agregar {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  background-image: linear-gradient(to right, var(--naranja), var(--rojo-coral));
+  color: var(--blanco);
+  font-size: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.formulario-modulo-agregar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(234, 82, 78, 0.35);
+}
+
+/* Para quien activó reducir el movimiento: el botón ya no sube */
+@media (prefers-reduced-motion: reduce) {
+  .formulario-modulo-agregar:hover {
+    transform: none;
+  }
+}
